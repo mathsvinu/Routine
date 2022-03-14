@@ -4,7 +4,8 @@
   <title>KAI(M) Boy's Master Routine</title>
     <head>
       <h3 id="h3"></h3>
-      <h4 id="h6"></h4>
+      <h5 id="h5"></h5>
+      <h4 id="h4"></h4>
     </head>
 <body onload="startTime()">
     <style>
@@ -322,7 +323,7 @@ document.getElementById("s7").innerHTML= weekly_Routine[magic_number+6][7];
 
 const d = new Date();
   var day_number = d.getDay()+magic_number;
-  document.getElementById("h6").innerHTML= d;
+  document.getElementById("h4").innerHTML= d;
   if (day_number%7 == 0) {
     document.getElementById("box-1").innerHTML= "Today";
   document.getElementById("box-2").innerHTML= "is";
@@ -429,7 +430,7 @@ const d = new Date();
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
-     document.getElementById("h6").innerHTML =  "Current Time is "+ h%12 + ":" + m + ":" + s;
+     document.getElementById("h5").innerHTML =  "Current Time is "+ h%12 + ":" + m + ":" + s;
     setTimeout(startTime, 1000);
   }
   
