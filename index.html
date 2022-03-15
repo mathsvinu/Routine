@@ -484,9 +484,14 @@ if(d.getTime() > g2.getTime() && day_number%7 != 0) {
     let s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
+    var temp;
+    if (h < 12)
+      temp = "AM";
+    else
+      temp ="PM";
     if(h>12)
       h %=12;
-     document.getElementById("h5").innerHTML =  "Current Time is "+ h + ":" + m + ":" + s;
+     document.getElementById("h5").innerHTML =  "Current Time is "+ h + ":" + m + ":" + s + " "+ temp;
     setTimeout(startTime, 1000);
   }
   function checkTime(i) {
