@@ -482,8 +482,15 @@ if(d.getTime() > g2.getTime() && day_number%7 != 0) {
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
-     document.getElementById("h5").innerHTML =  "Current Time is "+ h%12 + ":" + m + ":" + s;
+    m = checkTime(m);
+    s = checkTime(s);
+    if(h>12)
+      h %=12;
+     document.getElementById("h5").innerHTML =  "Current Time is "+ h + ":" + m + ":" + s;
     setTimeout(startTime, 1000);
   }
-  
+  function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
   </script>
