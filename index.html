@@ -89,44 +89,44 @@ table.GeneratedTable thead {
           display: inline-block;
         }
         #box-1 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
           text-align: center;
           }
       
         #box-2 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-3 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-4 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-5 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-6 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-7 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
         #box-8 {
-          background-color: antiquewhite;
+          background-color: rgb(224, 195, 30);
           width: 50%;
           height: 50%;
         }
@@ -345,14 +345,53 @@ const d = new Date();
   document.getElementById("box-8").innerHTML= weekly_Routine[day_number][7];
   }
   var g1 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 15, 00);
-  var g2 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 55, 00);
-  var g3 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 35, 00);
-  var g4 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 13, 15, 00);
+  var g2 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 00, 00);
+  var g3 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 40, 00);
+  var g4 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 13, 20, 00);
   var g5 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 00, 00);
   var g6 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 30, 00);
   var g7 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 10, 00);
   var g8 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 50, 00);
   var g9 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30, 00);
+  
+  // changing to green color if the period has ealapsed - first period
+if(d.getTime() > g2.getTime() && day_number%7 != 0) {
+    document.getElementById("box-1").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-1").style.border = "1px solid";
+  }
+
+  // changing to green color if the period has ealapsed - 2ns period
+  if(d.getTime() > g3.getTime() && day_number%7 != 0) {
+    document.getElementById("box-2").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-2").style.border = "1px solid";
+  }
+// changing to green color if the period has ealapsed - 3rd period
+  if(d.getTime() > g4.getTime() && day_number%7 != 0) {
+    document.getElementById("box-3").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-3").style.border = "1px solid";
+  }     
+ // changing to green color if the period has ealapsed - 4th period
+  if(d.getTime() > g5.getTime() && day_number%7 != 0) {
+    document.getElementById("box-4").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-4").style.border = "1px solid";
+  }
+
+// changing to green color if the period has ealapsed - 5th period
+  if(d.getTime() > g7.getTime() && day_number%7 != 0) {
+    document.getElementById("box-6").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-6").style.border = "1px solid";
+  }
+// changing to green color if the period has ealapsed - 6th period
+  if(d.getTime() > g8.getTime() && day_number%7 != 0) {
+    document.getElementById("box-7").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-7").style.border = "1px solid";
+  }
+      // changing to green color if the period has ealapsed - 7th period
+  if(d.getTime() > g9.getTime() && day_number%7 != 0) {
+    document.getElementById("box-8").style.backgroundColor = "#0F9D58";
+    document.getElementById("box-8").style.border = "1px solid";
+  }
+  
   if ( d.getTime() >= g1.getTime() && d.getTime() < g2.getTime() && day_number%7 != 0  ) {
     document.getElementById("box-1").style.backgroundColor = "red";
     document.getElementById("box-1").style.border = "1px solid";
