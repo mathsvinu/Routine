@@ -564,7 +564,7 @@
         holidayList[count++] = " Sunday."+i+"."+(month+1)+"."+year;
       }
     }
-    document.getElementById("holiday-list").innerHTML = holidayList;
+    document.getElementById("holiday-list").innerHTML = today + "<br>" +"Upcoming Holidays"+"<br>"+holidayList ;
     var x = document.getElementById("holiday-list");
     if (x.style.display === "none") {
       x.style.display = "block";
