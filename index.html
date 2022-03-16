@@ -558,5 +558,11 @@
       }
     }
     document.getElementById("holiday-list").innerHTML = holidayList;
+    var x = document.getElementById("holiday-list");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
   }
 </script>
