@@ -295,6 +295,8 @@
 <script>
   function ShowRoutine() {
     var teacher_name = (document.getElementById("teacher-name").value).toUpperCase();
+    if(teacher_name == Null)
+      location.reload()
     document.getElementById("h3").innerHTML = "Hi " + teacher_name + "! Your schedule is given below.";
         const teacher_set = ["VKS", "SS", "CG", "PD", "SDN", "AHR", "IPAL", "NKM", "SK", "AHL", "SMD", "PM","RC","BN","BMU"];
     var count = 0;
