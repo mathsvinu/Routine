@@ -300,7 +300,7 @@
     document.getElementById("h3").innerHTML = "Hi " + teacher_name + "! Your schedule is given below.";
         const teacher_set = ["VKS", "SS", "CG", "PD", "SDN", "AHR", "IPAL", "NKM", "SK", "AHL", "SMD", "PM","RC","BN","BMU"];
     var count = 0;
-    while (teacher_name != teacher_set[count])
+    while (teacher_name != teacher_set[count] && count < teacher_name.length)
       count++;
     var magic_number = (count * 7);
     //alert(magic_number);
