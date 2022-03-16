@@ -5,7 +5,7 @@
     <head>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701104685381436"
      crossorigin="anonymous"></script>
-      <h6 id="h6">Site maintained and developed by Vinod Singh. This is a beta version, verify the data on your side.</h6>
+      <h6 id="h6">Site maintained and developed by Vinod Singh. This is a beta version, verify the data on your end.</h6>
       <hr>
       <h3 id="h3"></h3>
       <h5 id="h5"></h5>
@@ -21,11 +21,11 @@
       font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
       font-size: 10px;
       }
-#input-teacher-name {
+#input-teacher-name, #temp {
       font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
       font-size: 18px;
       }
-  .button-7, .button {
+  .button-7, .button, .holiday-b {
   background-color: #0095ff;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -52,15 +52,15 @@
 }
 
 .button-7:hover,
-.button-7:focus, .button:hover, .button:focus {
+.button-7:focus, .button:hover, .button:focus,.holiday-b:hover, .holiday-b:focus {
   background-color: #07c;
 }
 
-.button-7:focus, .button:focus {
+.button-7:focus, .button:focus,.holiday-b:focus, {
   box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
 }
 
-.button-7:active, .button:active {
+.button-7:active, .button:active,.holiday-b:active {
   background-color: #0064bd;
   box-shadow: none;
 }
@@ -151,6 +151,8 @@ table.GeneratedTable thead {
         <input id="teacher-name" size="5" type="text" />
         <button class="button" onclick="ShowRoutine()">Show Routine</button>
         <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
+        <button class="holiday-b" role="button" onclick="javaCode()">Upcoming Holidays</button>
+        <p id="temp">Upcoming Holiday feature to be updated soon!:</p>
       </div>
         <div id="box-container">
         <div id="box-1"></div>
