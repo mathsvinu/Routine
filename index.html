@@ -549,12 +549,12 @@
     let month = today.getMonth();
     let date = today.getDate();
     let weekDay = today.getDay();
-    var holidayList = ["Friday.18.03.2022","Saturday.19.03.2022"];
+    var holidayList = ["(Dol Jatra) Friday.18.03.2022 ","(Holi) Saturday.19.03.2022 "];
     var count = 2;
     for (var i = date; i <= mdays[month]; i++) {
       var g = new Date(today.getFullYear(), today.getMonth(), i, 11, 15, 00);
       if (g.getDay() == 0) {
-        holidayList[count++] = "Sunday."+i+"."+(month+1)+"."+year;
+        holidayList[count++] = " Sunday."+i+"."+(month+1)+"."+year;
       }
     }
     document.getElementById("holiday-list").innerHTML = holidayList;
