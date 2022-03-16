@@ -297,7 +297,7 @@
     var teacher_name = (document.getElementById("teacher-name").value).toUpperCase();
     const teacher_set = ["VKS", "SS", "CG", "PD", "SDN", "AHR", "IPAL", "NKM", "SK", "AHL", "SMD", "PM","RC","BN","BMU"];
     var count = 0;
-    while (teacher_name != teacher_set[count])
+    while (teacher_name != teacher_set[count] && count < teacher_set.length)
       count++;
     if (count >= teacher_set.length) {
       document.getElementById("h3").innerHTML = "Data not found or wrong initial entered:";  
