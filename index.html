@@ -185,7 +185,7 @@
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
     <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;">Upcoming Holiday feature to be updated soon!:</p>
-    <p id="#holiday-output-message"></p>
+    <p id="holiday-output-message"></p>
   </div>
   <div id="box-container">
     <div id="box-1"></div>
@@ -409,12 +409,12 @@
 
       if (day_number % 7 == 0 || holiday) {
         if (holiday)
-          document.getElementById("#holiday-output-message").innerHTML = "Today is "+holidayList[tag].split(".")[0]+" enjoy your holiday!";
+          document.getElementById("holiday-output-message").innerHTML = "Today is "+holidayList[tag].split(".")[0]+" enjoy your holiday!";
         else
-          document.getElementById("#holiday-output-message").innerHTML = "Today is Sunday! enjoy your holiday!";
+          document.getElementById("holiday-output-message").innerHTML = "Today is Sunday! enjoy your holiday!";
         document.getElementById("box-1").innerHTML = "";
         document.getElementById("box-2").innerHTML = "";
-        //document.getElementById("box-3").innerHTML = "Sunday!"
+        document.getElementById("box-3").innerHTML = "";
         document.getElementById("box-4").innerHTML = "";
         document.getElementById("box-5").innerHTML = "";
         document.getElementById("box-6").innerHTML = "";
