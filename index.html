@@ -556,33 +556,65 @@
     let month = today.getMonth();
     let date = today.getDate();
     let weekDay = today.getDay();
-    var holidayList = ["(Dol Jatra) Friday.18.03.2022 ","(Holi) Saturday.19.03.2022 "];
-    var count = 2;
+    var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "(May Day).Saturday.1.5.2022"];
+    var nextHolidays = [];
+    //alert( holidayList[1].split(".")[2]);
+    document.getElementById("holiday-list").innerHTML = null;
+    var count = 0;
     for (var i = date; i <= mdays[month]; i++) {
       var g = new Date(today.getFullYear(), today.getMonth(), i, 11, 15, 00);
+      for (var j = 0; j < holidayList.length; j++) {
+        if (g.getMonth() == holidayList[j].split(".")[3] - 1 && i == holidayList[j].split(".")[2])
+          nextHolidays[i] = holidayList[j];
+      }
       if (g.getDay() == 0) {
-        holidayList[count++] = " Sunday."+i+"."+(month+1)+"."+year;
+        nextHolidays[i] = "(Sunday)." + "Sunday." + i + "." + (month + 1) + "." + year;
+      }
+    } // end of for var i
+    var nextHolidays1 = [];
+    for (var k = 0; k < nextHolidays.length; k++)
+      if (nextHolidays[k] != null)
+        nextHolidays1[count++] = nextHolidays[k];
+    //document.getElementById("holiday-list").innerHTML = today + "<br>" +"Upcoming Holidays"+"<br>"+nextHolidays1;
+    // generating table
+    count = 0;
+    var myTableDiv = document.getElementById("holiday-list");
+
+    var table = document.createElement('TABLE');
+    table.border = '1';
+
+    var tableBody = document.createElement('TBODY');
+    table.appendChild(tableBody);
+
+    for (var i = 0; i < nextHolidays1.length; i++) {
+      var tr = document.createElement('TR');
+      tableBody.appendChild(tr);
+
+      for (var j = 0; j < 1; j++) {
+        var td = document.createElement('TD');
+        td.width = '200';
+        td.appendChild(document.createTextNode(nextHolidays1[count++]));
+        tr.appendChild(td);
       }
     }
-    document.getElementById("holiday-list").innerHTML = today + "<br>" +"Upcoming Holidays"+"<br>"+holidayList ;
+    myTableDiv.appendChild(table);
+
+    // table ends
     var x = document.getElementById("holiday-list");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
+    
   }
 </script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701104685381436"
-     crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 <!-- routine -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6701104685381436"
-     data-ad-slot="6594794944"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6701104685381436" data-ad-slot="6594794944"
+  data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
