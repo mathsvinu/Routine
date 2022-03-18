@@ -28,7 +28,7 @@
     }
 
     #input-teacher-name,
-    #temp, #holiday-list {
+    #temp, #holiday-list-time {
       font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
       font-size: 18px;
     }
@@ -183,6 +183,7 @@
     <button class="button" onclick="ShowRoutine()">Show Routine</button>
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
+    <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;">Upcoming Holiday feature to be updated soon!:</p>
   </div>
   <div id="box-container">
@@ -559,6 +560,7 @@
     var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "(May Day).Saturday.1.5.2022"];
     var nextHolidays = [];
     //alert( holidayList[1].split(".")[2]);
+    document.getElementById("holiday-list-time").innerHTML = today;
     document.getElementById("holiday-list").innerHTML = null;
     var count = 0;
     for (var i = date; i <= mdays[month]; i++) {
@@ -606,7 +608,12 @@
     } else {
       x.style.display = "none";
     }
-    
+    var x = document.getElementById("holiday-list-time");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
   }
 </script>
 
