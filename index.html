@@ -37,7 +37,8 @@
 
     .button-7,
     .button,
-    .holiday-b {
+    .holiday-b,
+    .HS {
       background-color: #0095ff;
       border: 1px solid transparent;
       border-radius: 3px;
@@ -68,19 +69,23 @@
     .button:hover,
     .button:focus,
     .holiday-b:hover,
-    .holiday-b:focus {
+    .holiday-b:focus,
+    .HS:hover,
+    .HS:focus {
       background-color: #07c;
     }
 
     .button-7:focus,
     .button:focus,
-    .holiday-b:focus {
+    .holiday-b:focus,
+    .HS:focus {
       box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
     }
 
     .button-7:active,
     .button:active,
-    .holiday-b:active {
+    .holiday-b:active,
+    .HS:active {
       background-color: #0064bd;
       box-shadow: none;
     }
@@ -186,8 +191,10 @@
     <button class="button" onclick="ShowRoutine()">Show Routine</button>
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
+    <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
     <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;"></p>
+    <p id="exam-list" style="display: none;"></p>
     <p id="holiday-output-message"></p>
     <p id="holiday-image"><img id="img-hol" style="display:none;"
         src="https://blogger.googleusercontent.com/img/a/AVvXsEgXFrrBH1PZAkewtuvg46fsyQ4r4RnWD_PZpIHllZKp_1V0_IH958psCrUmKMAm8x_anYqFE1L9oFMmwwHjB6lqrBBQUOHIu5grvkS4AvVmqLH3Fmo88SGyedm3e_iYeiXlkal1GWwh3rJpgRwaxSRo65-1eyKJnjCzXmT63RrrYnmbVC6Bova_FnzXFQ=s1024">
@@ -402,26 +409,41 @@
       let date = today.getDate();
       let weekDay = today.getDay();
       var holiday = Boolean(0);
+      var noClassHSXI = Boolean(0);
       var tag = -1;
-      var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "(May Day).Saturday.1.5.2022"];
+      //var tagHSXI = -1;
+      var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022",
+        "(Ambedkar and Mahavir Jayanti).Thursday.14.4.2022",
+        "(Bengali New Year).Thursday.15.04.2022", "(HS Exam Duty).Saturday.02.04.2022",
+        "(HS Exam Duty).Monday.04.04.2022", "(HS Exam Duty).Tuesday.5.04.2022",
+        "(HS Exam Duty).Saturday.16.04.2022", "(HS Exam Duty).Monday.18.04.2022",
+        "(HS Exam Duty).Tuesday.19.04.2022", "(HS Exam Duty).Wednesday.20.4.2022",
+        "(HS Exam Duty).Friday.22.04.2022", "(HS Exam Duty).Saturday.23.04.2022",
+        "(HS Exam Duty).Tuesday.26.04.2022", "(HS Exam Duty).Wednesdayy.27.03.2022",
+        "(May Day).Saturday.01.05.2022"];
+      //alert(noClassHSXI);
       var g = new Date(today.getFullYear(), today.getMonth(), date, 11, 15, 00);
       for (var j1 = 0; j1 < holidayList.length; j1++) {
         if (g.getMonth() == holidayList[j1].split(".")[3] - 1 && date == holidayList[j1].split(".")[2]) {
           holiday = Boolean(1);
+          if ("(HS Exam Duty)" == holidayList[j1].split(".")[0])
+            noClassHSXI = Boolean(1);
           tag = j1;
         }
       }
       // checking ends here
 
-
+      //alert(noClassHSXI);
       if (day_number % 7 == 0 || holiday) {
-        if (holiday) {
-          document.getElementById("holiday-output-message").innerHTML = "Today is " + holidayList[tag].split(".")[0] + " enjoy your holiday!";
+        if (holiday && !noClassHSXI) {
+          document.getElementById("holiday-output-message").innerHTML = "Today is " + holidayList[tag].split(".")[0] + "! Enjoy your holiday!";
           document.getElementById("img-hol").width = "1000";
           document.getElementById("img-hol").height = "650";
           document.getElementById("img-hol").style.display = "block";
-          document.getElementById("box-container").style.display="none";
+          document.getElementById("box-container").style.display = "none";
         }
+        else if (noClassHSXI)
+          document.getElementById("holiday-output-message").innerHTML = "No Classes due to HS Exam!";
         else
           document.getElementById("holiday-output-message").innerHTML = "Today is Sunday! enjoy your holiday!";
 
@@ -437,126 +459,126 @@
         document.getElementById("box-6").innerHTML = weekly_Routine[day_number][5];
         document.getElementById("box-7").innerHTML = weekly_Routine[day_number][6];
         document.getElementById("box-8").innerHTML = weekly_Routine[day_number][7];
-      
-      var g1 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 15, 00);
-      var g2 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 00, 00);
-      var g3 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 40, 00);
-      var g4 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 13, 20, 00);
-      var g5 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 00, 00);
-      var g6 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 30, 00);
-      var g7 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 10, 00);
-      var g8 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 50, 00);
-      var g9 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30, 00);
 
-      // changing to green color if the period has ealapsed - first period
-      if (d.getTime() > g2.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-1").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-1").style.border = "1px solid";
-      }
+        var g1 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 15, 00);
+        var g2 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 00, 00);
+        var g3 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 40, 00);
+        var g4 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 13, 20, 00);
+        var g5 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 00, 00);
+        var g6 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 14, 30, 00);
+        var g7 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 10, 00);
+        var g8 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 15, 50, 00);
+        var g9 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30, 00);
 
-      // changing to green color if the period has ealapsed - 2ns period
-      if (d.getTime() > g3.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-2").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-2").style.border = "1px solid";
-      }
-      // changing to green color if the period has ealapsed - 3rd period
-      if (d.getTime() > g4.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-3").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-3").style.border = "1px solid";
-      }
-      // changing to green color if the period has ealapsed - 4th period
-      if (d.getTime() > g5.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-4").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-4").style.border = "1px solid";
-      }
+        // changing to green color if the period has ealapsed - first period
+        if (d.getTime() > g2.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-1").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-1").style.border = "1px solid";
+        }
 
-      // changing to green color if the period has ealapsed - 5th period
-      if (d.getTime() > g7.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-6").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-6").style.border = "1px solid";
-      }
-      // changing to green color if the period has ealapsed - 6th period
-      if (d.getTime() > g8.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-7").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-7").style.border = "1px solid";
-      }
-      // changing to green color if the period has ealapsed - 7th period
-      if (d.getTime() > g9.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-8").style.backgroundColor = "#0F9D58";
-        document.getElementById("box-8").style.border = "1px solid";
-      }
+        // changing to green color if the period has ealapsed - 2ns period
+        if (d.getTime() > g3.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-2").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-2").style.border = "1px solid";
+        }
+        // changing to green color if the period has ealapsed - 3rd period
+        if (d.getTime() > g4.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-3").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-3").style.border = "1px solid";
+        }
+        // changing to green color if the period has ealapsed - 4th period
+        if (d.getTime() > g5.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-4").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-4").style.border = "1px solid";
+        }
 
-      if (d.getTime() >= g1.getTime() && d.getTime() < g2.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-1").style.backgroundColor = "red";
-        document.getElementById("box-1").style.border = "1px solid";
-        document.getElementById("box-1").style.padding = "10px";
-        document.getElementById("box-1").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][0].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-        //else
+        // changing to green color if the period has ealapsed - 5th period
+        if (d.getTime() > g7.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-6").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-6").style.border = "1px solid";
+        }
+        // changing to green color if the period has ealapsed - 6th period
+        if (d.getTime() > g8.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-7").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-7").style.border = "1px solid";
+        }
+        // changing to green color if the period has ealapsed - 7th period
+        if (d.getTime() > g9.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-8").style.backgroundColor = "#0F9D58";
+          document.getElementById("box-8").style.border = "1px solid";
+        }
 
+        if (d.getTime() >= g1.getTime() && d.getTime() < g2.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-1").style.backgroundColor = "red";
+          document.getElementById("box-1").style.border = "1px solid";
+          document.getElementById("box-1").style.padding = "10px";
+          document.getElementById("box-1").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][0].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+          //else
+
+        }
+        else if (d.getTime() >= g2.getTime() && d.getTime() < g3.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-2").style.backgroundColor = "red";
+          document.getElementById("box-2").style.border = "1px solid";
+          document.getElementById("box-2").style.padding = "10px";
+          document.getElementById("box-2").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][1].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else if (d.getTime() >= g3.getTime() && d.getTime() < g4.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-3").style.backgroundColor = "tomato";
+          document.getElementById("box-3").style.border = "1px solid";
+          document.getElementById("box-3").style.padding = "10px";
+          document.getElementById("box-3").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][2].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else if (d.getTime() >= g4.getTime() && d.getTime() < g5.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-4").style.backgroundColor = "red";
+          document.getElementById("box-4").style.border = "1px solid";
+          document.getElementById("box-4").style.padding = "10px";
+          document.getElementById("box-4").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][3].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else if (d.getTime() >= g5.getTime() && d.getTime() < g6.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-5").style.backgroundColor = "red";
+          document.getElementById("box-5").style.border = "1px solid";
+          document.getElementById("box-5").style.padding = "10px";
+          document.getElementById("box-5").style.boxShadow = "5px 5px";
+          document.getElementById("box-5").style.backgroundImage = "url('https://blogger.googleusercontent.com/img/a/AVvXsEhwFNa1tXHQsXEhmp2eMVi1sU10uFgl1xx1LeRxpjPUORpT8cuSqT7fXJF_rOpSTS_yif-lX0CcaCbdQ0HjpCvHT6VPV_Et5rS7VL_URG1gog_Dvas4VQJVDRNJuxOR-UAgrFXv2zfBfoISTVPkNU_C9zp80VeMeearcZSx9q7Ilm78_WDWFY800i44ag=s226')";
+          if ("BREAK" == weekly_Routine[day_number][4].split(".")[0])
+            document.getElementById("message").innerHTML = "Lunch time! Enjoy your food!"
+        }
+        else if (d.getTime() >= g6.getTime() && d.getTime() < g7.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-6").style.backgroundColor = "red";
+          document.getElementById("box-6").style.border = "1px solid";
+          document.getElementById("box-6").style.padding = "10px";
+          document.getElementById("box-6").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][5].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else if (d.getTime() >= g7.getTime() && d.getTime() < g8.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-7").style.backgroundColor = "red";
+          document.getElementById("box-7").style.border = "1px solid";
+          document.getElementById("box-7").style.padding = "10px";
+          document.getElementById("box-7").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][6].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else if (d.getTime() >= g8.getTime() && d.getTime() < g9.getTime() && day_number % 7 != 0) {
+          document.getElementById("box-8").style.backgroundColor = "red";
+          document.getElementById("box-8").style.border = "1px solid";
+          document.getElementById("box-8").style.padding = "10px";
+          document.getElementById("box-8").style.boxShadow = "5px 5px";
+          if ("OFF" == weekly_Routine[day_number][7].split(".")[0])
+            document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
+        }
+        else
+          document.getElementById("message").innerHTML = "Relax! No classes for now!"
       }
-      else if (d.getTime() >= g2.getTime() && d.getTime() < g3.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-2").style.backgroundColor = "red";
-        document.getElementById("box-2").style.border = "1px solid";
-        document.getElementById("box-2").style.padding = "10px";
-        document.getElementById("box-2").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][1].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else if (d.getTime() >= g3.getTime() && d.getTime() < g4.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-3").style.backgroundColor = "tomato";
-        document.getElementById("box-3").style.border = "1px solid";
-        document.getElementById("box-3").style.padding = "10px";
-        document.getElementById("box-3").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][2].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else if (d.getTime() >= g4.getTime() && d.getTime() < g5.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-4").style.backgroundColor = "red";
-        document.getElementById("box-4").style.border = "1px solid";
-        document.getElementById("box-4").style.padding = "10px";
-        document.getElementById("box-4").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][3].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else if (d.getTime() >= g5.getTime() && d.getTime() < g6.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-5").style.backgroundColor = "red";
-        document.getElementById("box-5").style.border = "1px solid";
-        document.getElementById("box-5").style.padding = "10px";
-        document.getElementById("box-5").style.boxShadow = "5px 5px";
-        document.getElementById("box-5").style.backgroundImage = "url('https://blogger.googleusercontent.com/img/a/AVvXsEhwFNa1tXHQsXEhmp2eMVi1sU10uFgl1xx1LeRxpjPUORpT8cuSqT7fXJF_rOpSTS_yif-lX0CcaCbdQ0HjpCvHT6VPV_Et5rS7VL_URG1gog_Dvas4VQJVDRNJuxOR-UAgrFXv2zfBfoISTVPkNU_C9zp80VeMeearcZSx9q7Ilm78_WDWFY800i44ag=s226')";
-        if ("BREAK" == weekly_Routine[day_number][4].split(".")[0])
-          document.getElementById("message").innerHTML = "Lunch time! Enjoy your food!"
-      }
-      else if (d.getTime() >= g6.getTime() && d.getTime() < g7.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-6").style.backgroundColor = "red";
-        document.getElementById("box-6").style.border = "1px solid";
-        document.getElementById("box-6").style.padding = "10px";
-        document.getElementById("box-6").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][5].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else if (d.getTime() >= g7.getTime() && d.getTime() < g8.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-7").style.backgroundColor = "red";
-        document.getElementById("box-7").style.border = "1px solid";
-        document.getElementById("box-7").style.padding = "10px";
-        document.getElementById("box-7").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][6].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else if (d.getTime() >= g8.getTime() && d.getTime() < g9.getTime() && day_number % 7 != 0) {
-        document.getElementById("box-8").style.backgroundColor = "red";
-        document.getElementById("box-8").style.border = "1px solid";
-        document.getElementById("box-8").style.padding = "10px";
-        document.getElementById("box-8").style.boxShadow = "5px 5px";
-        if ("OFF" == weekly_Routine[day_number][7].split(".")[0])
-          document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
-      }
-      else
-        document.getElementById("message").innerHTML = "Relax! No classes for now!"
     }
-  }
   }
 </script>
 
@@ -584,6 +606,7 @@
   }
 </script>
 <script>
+  // holiday - list button action
   function upcomingHolidays() {
     const monthName = ["January", "February", "March", "	April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const mdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
@@ -592,7 +615,9 @@
     let month = today.getMonth();
     let date = today.getDate();
     let weekDay = today.getDay();
-    var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "(May Day).Saturday.1.5.2022"];
+    var holidayList = ["(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022",
+      "(Ambedkar & Mahavir Jayanti).Thursday.14.4.2022",
+      "(Bengali New Year).Thursday.15.4.2022", "(May Day).Saturday.1.5.2022"];
     var nextHolidays = [];
     //alert( holidayList[1].split(".")[2]);
     document.getElementById("holiday-list-time").innerHTML = today;
@@ -651,7 +676,45 @@
     }
   }
 </script>
+<script>
+  function hsxiExam() {
+    var examRoutine = ["(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.02.04.2022 First Language",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.04.04.2022 Second Language", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.05.04.2022 Vocational",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.16.04.2022 Mathematics, History, Psychology", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.18.04.2022 Economics",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.19.04.2022 Computer Science and Application", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Wednesday.20.4.2022 Law, Philosophy and Sociology",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Friday.22.04.2022 Physics,Nutrition, Accountancy and Education", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.23.04.2022 Statistics, Geography and Taxation",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.26.04.2022 Chemistry and Mass Communication", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Wednesday.27.03.2022 Biological Science, Bussiness Studies and Political Science",
+    ];
+    var count = 0;
+    var myTableDiv = document.getElementById("exam-list");
 
+    var table = document.createElement('TABLE');
+    table.border = '1';
+
+    var tableBody = document.createElement('TBODY');
+    table.appendChild(tableBody);
+
+    for (var i = 0; i < examRoutine.length; i++) {
+      var tr = document.createElement('TR');
+      tableBody.appendChild(tr);
+
+      for (var j = 0; j < 1; j++) {
+        var td = document.createElement('TD');
+        td.width = '900';
+        td.appendChild(document.createTextNode(examRoutine[count++]));
+        tr.appendChild(td);
+      }
+    }
+    myTableDiv.appendChild(table);
+    var x = document.getElementById("exam-list");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      x.innerHTML=null;
+    }
+  }
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701104685381436"
   crossorigin="anonymous"></script>
 <!-- routine -->
