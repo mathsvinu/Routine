@@ -408,15 +408,15 @@
 
       if (day_number % 7 == 0 || holiday) {
         if (holiday)
-          document.getElementById("box-3").innerHTML = holidayList[tag].split(".")[0];
+          document.getElementById("holiday-list-time").innerHTML = "Today is "+holidayList[tag].split(".")[0]+" enjoy your holiday!";
         else
-          document.getElementById("box-3").innerHTML = "Sunday!"
-        document.getElementById("box-1").innerHTML = "Today";
-        document.getElementById("box-2").innerHTML = "is";
+          document.getElementById("holiday-list-time").innerHTML = "Today is Sunday! enjoy your holiday!";
+        document.getElementById("box-1").innerHTML = "";
+        document.getElementById("box-2").innerHTML = "";
         //document.getElementById("box-3").innerHTML = "Sunday!"
-        document.getElementById("box-4").innerHTML = "Enjoy";
-        document.getElementById("box-5").innerHTML = "the"
-        document.getElementById("box-6").innerHTML = "holiday!"
+        document.getElementById("box-4").innerHTML = "";
+        document.getElementById("box-5").innerHTML = "";
+        document.getElementById("box-6").innerHTML = "";
         document.getElementById("box-7").innerHTML = "";
         document.getElementById("box-8").innerHTML = "";
       }
