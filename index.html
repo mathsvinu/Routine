@@ -119,8 +119,8 @@
     }
 
     #info-centre, #holiday-image {
-      height: 50px;
-      width: 100%;
+      height: auto;
+      width: auto;
       display: flex;
       font-family: "Lucida Console";
       font-size: 25px;
@@ -185,9 +185,9 @@
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
     <p id="holiday-list-time" style="display: none;"></p>
-    <p id="holiday-list" style="display: none;"></p>
+    <p id="holiday-list" style="display: none;">Upcoming Holiday feature to be updated soon!:</p>
     <p id="holiday-output-message"></p>
-    <p id="holiday-image"><img id="img-hol" style="display:none;" src="https://blogger.googleusercontent.com/img/a/AVvXsEgXFrrBH1PZAkewtuvg46fsyQ4r4RnWD_PZpIHllZKp_1V0_IH958psCrUmKMAm8x_anYqFE1L9oFMmwwHjB6lqrBBQUOHIu5grvkS4AvVmqLH3Fmo88SGyedm3e_iYeiXlkal1GWwh3rJpgRwaxSRo65-1eyKJnjCzXmT63RrrYnmbVC6Bova_FnzXFQ=s1024"></p>
+    <p id="holiday-image"></p>
   </div>
   
   <div id="box-container">
@@ -411,20 +411,19 @@
 
 
       if (day_number % 7 == 0 || holiday) {
-        if (holiday) {
+        if (holiday)
           document.getElementById("holiday-output-message").innerHTML = "Today is "+holidayList[tag].split(".")[0]+" enjoy your holiday!";
-          document.getElementById("img-hol").width = "1000";
-        document.getElementById("img-hol").height = "650";
-        document.getElementById("img-hol").style.zIndex = "-1";
-        document.getElementById("img-hol").style.display = "block";
-        document.getElementById("box-container").style.display = "none";
-        
-        }
         else
           document.getElementById("holiday-output-message").innerHTML = "Today is Sunday! enjoy your holiday!";
-
-          //if (document.getElementById("img-hol").style.display.style.display === "none") 
-        
+        document.getElementById("holiday-image").style.backgroundImage = "url('https://blogger.googleusercontent.com/img/a/AVvXsEgXFrrBH1PZAkewtuvg46fsyQ4r4RnWD_PZpIHllZKp_1V0_IH958psCrUmKMAm8x_anYqFE1L9oFMmwwHjB6lqrBBQUOHIu5grvkS4AvVmqLH3Fmo88SGyedm3e_iYeiXlkal1GWwh3rJpgRwaxSRo65-1eyKJnjCzXmT63RrrYnmbVC6Bova_FnzXFQ=s1024')";
+        //document.getElementById("holiday-image").style.backgroundImage = "url('https://blogger.googleusercontent.com/img/a/AVvXsEhwFNa1tXHQsXEhmp2eMVi1sU10uFgl1xx1LeRxpjPUORpT8cuSqT7fXJF_rOpSTS_yif-lX0CcaCbdQ0HjpCvHT6VPV_Et5rS7VL_URG1gog_Dvas4VQJVDRNJuxOR-UAgrFXv2zfBfoISTVPkNU_C9zp80VeMeearcZSx9q7Ilm78_WDWFY800i44ag=s226')";
+        document.getElementById("box-2").innerHTML = "";
+        document.getElementById("box-3").innerHTML = "";
+        document.getElementById("box-4").innerHTML = "";
+        document.getElementById("box-5").innerHTML = "";
+        document.getElementById("box-6").innerHTML = "";
+        document.getElementById("box-7").innerHTML = "";
+        document.getElementById("box-8").innerHTML = "";
       }
       else {
         document.getElementById("box-1").innerHTML = weekly_Routine[day_number][0];
