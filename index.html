@@ -8,7 +8,6 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701104685381436"
     crossorigin="anonymous"></script>
-  <h6 id="h6">Site maintained and developed by Vinod Singh. This is a beta version, verify the data on your end.</h6>
   <hr>
   <h3 id="h3"></h3>
   <h5 id="h5"></h5>
@@ -130,7 +129,8 @@
     .button-7,
     .button,
     .holiday-b,
-    .HS {
+    .HS,
+    .ITAX {
       background-color: #0095ff;
       border: 1px solid transparent;
       border-radius: 3px;
@@ -163,21 +163,25 @@
     .holiday-b:hover,
     .holiday-b:focus,
     .HS:hover,
-    .HS:focus {
+    .HS:focus,
+    .ITAX:hover,
+    .ITAX:focus {
       background-color: #07c;
     }
 
     .button-7:focus,
     .button:focus,
     .holiday-b:focus,
-    .HS:focus {
+    .HS:focus,
+    .ITAX:focus {
       box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
     }
 
     .button-7:active,
     .button:active,
     .holiday-b:active,
-    .HS:active {
+    .HS:active,
+    .ITAX:active {
       background-color: #0064bd;
       box-shadow: none;
     }
@@ -327,6 +331,7 @@
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
     <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
+    <button class="ITAX" role="button" onclick="itaxPage()">I.Tax</button>
     <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;"></p>
     <p id="exam-list" style="display: none;"></p>
@@ -892,5 +897,10 @@
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
+  }
+</script>
+<script>
+  function itaxPage(){
+    window.open("https://thecprojectt.blogspot.com/2023/02/income-tax-calculator-new-tax-regime-fy.html");
   }
 </script>
