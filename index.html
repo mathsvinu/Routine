@@ -131,7 +131,8 @@
     .button,
     .holiday-b,
     .HS,
-    .ITAX {
+    .ITAX,
+    .calc{
       background-color: #0095ff;
       border: 1px solid transparent;
       border-radius: 3px;
@@ -166,7 +167,9 @@
     .HS:hover,
     .HS:focus,
     .ITAX:hover,
-    .ITAX:focus {
+    .ITAX:focus,
+    .calc:hover,
+    .calc:focus,{
       background-color: #07c;
     }
 
@@ -182,7 +185,8 @@
     .button:active,
     .holiday-b:active,
     .HS:active,
-    .ITAX:active {
+    .ITAX:active,
+    .calc:active{
       background-color: #0064bd;
       box-shadow: none;
     }
@@ -333,6 +337,7 @@
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
     <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
     <button class="ITAX" role="button" onclick="itaxPage()">I.Tax</button>
+    <button class="calc" role="button" onclick="calcPage()">Co-operative Loan Calc.</button>
     <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;"></p>
     <p id="exam-list" style="display: none;"></p>
@@ -904,5 +909,10 @@
 <script>
   function itaxPage(){
     window.open("https://thecprojectt.blogspot.com/2023/02/income-tax-calculator-new-tax-regime-fy.html");
+  }
+</script>
+<script>
+  function calcPage(){
+    window.open("https://thecprojectt.blogspot.com/2022/09/kaim-co-operative-loan-calculator.html");
   }
 </script>
