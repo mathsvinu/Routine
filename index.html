@@ -560,11 +560,6 @@
       var holidayList = ["(Panchanan Barma).Tuesday.14.02.2023", "(Shiv Ratri).Tuesday.18.02.2023", "(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "Harichandra Thakur Birthday.Wednesday.30.03.2022",
         "(Ambedkar and Mahavir Jayanti).Thursday.14.4.2022",
         "(Bengali New Year).Thursday.15.04.2022", "(HS Exam Duty).Saturday.02.04.2022",
-        "(HS Exam Duty).Monday.04.04.2022",
-        "(HS Exam Duty).Saturday.16.04.2022", "(HS Exam Duty).Monday.18.04.2022",
-        "(HS Exam Duty).Tuesday.19.04.2022", "(HS Exam Duty).Wednesday.20.4.2022",
-        "(HS Exam Duty).Friday.22.04.2022", "(HS Exam Duty).Saturday.23.04.2022",
-        "(HS Exam Duty).Tuesday.26.04.2022", "(HS Exam Duty).Wednesdayy.27.03.2022",
         "(May Day).Saturday.01.05.2022", "(Muharam).Tuesday.09.08.2022", "(Independence Day).Monday.15.08.2022", "(Janmasthami).Friday.19.08.2022"];
       //alert(noClassHSXI);
       var g = new Date(today.getFullYear(), today.getMonth(), date, 11, 15, 00);
@@ -834,12 +829,19 @@
 </script>
 <script>
   function hsxiExam() {
-    var examRoutine = ["(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.02.04.2022 First Language",
-      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.04.04.2022 Second Language", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.05.04.2022 Vocational",
-      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.16.04.2022 Mathematics, History, Psychology", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.18.04.2022 Economics",
-      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.19.04.2022 Computer Science and Application", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Wednesday.20.4.2022 Law, Philosophy and Sociology",
-      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Friday.22.04.2022 Physics,Nutrition, Accountancy and Education", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.23.04.2022 Statistics, Geography and Taxation",
-      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.26.04.2022 Chemistry and Mass Communication", "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Wednesday.27.03.2022 Biological Science, Bussiness Studies and Political Science",
+    var examRoutine = [
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.14.03.2023 First Language",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Thursday.16.03.2023 Second Language",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Friday.17.03.2023 Vocational Subjects",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.18.03.2023 Biology, Business Studies,Political Science", 
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.18.03.2022 Economics",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.20.03.2022 Mathematics,History,Psychology",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Tuesday.21.03.2023 Computer Science and Application, Music", 
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Wednesday.22.03.2023 CLPA, Philosophy, Sociology",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Thursday.23.03.2023 Physics, Education, Nutrition,Accountancy", 
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Friday.24.03.2023 Economics",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Saturday.25.03.2023 Chemistry",
+      "(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm).Monday.27.03.2023 Cost and Taxation, Geography",
     ];
     var count = 0;
     var myTableDiv = document.getElementById("exam-list");
