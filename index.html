@@ -18,288 +18,162 @@
 <body onload="startTime()">
 
   <style>
-    * {
-      box-sizing: border-box
-    }
+   
+    /* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Verdana, sans-serif;
-      margin: 0
-    }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
 
-    /* Slideshow container */
-    .slideshow-container {
-      position: relative;
-      background: rgb(221, 226, 209);
-      height: 100px;
-    }
+/* Slideshow */
+.slideshow-container {
+  position: relative;
+  background: #dde2d1;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-    /* Slides */
-    .mySlides {
-      display: none;
-      padding: 10px;
-      text-align: center;
+.mySlides {
+  display: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+}
 
-    }
+.author {
+  color: #007bff;
+  font-weight: bold;
+}
 
-    /* Next & previous buttons */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      margin-top: -30px;
-      padding: 10px;
-      color: rgb(20, 2, 2);
-      font-weight: bold;
-      font-size: 20px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-    }
+/* Navigation Buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
 
-    /* Position the "next button" to the right */
-    .next {
-      position: absolute;
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
+.next {
+  right: 10px;
+}
 
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-    }
+.prev {
+  left: 10px;
+}
 
-    /* The dot/bullet/indicator container */
-    .dot-container {
-      text-align: center;
-      padding: 2px;
-      background: rgb(231, 176, 176);
-    }
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
 
-    /* The dots/bullets/indicators */
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-    }
+/* Dots */
+.dot-container {
+  text-align: center;
+  padding: 10px;
+  background: #e7b0b0;
+}
 
-    /* Add a background color to the active dot/circle */
-    .active,
-    .dot:hover {
-      background-color: #717171;
-    }
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
 
-    /* Add an italic font style to all quotes */
-    q {
-      font-style: italic;
-    }
+.active, .dot:hover {
+  background-color: #717171;
+}
 
-    /* Add a blue color to the author */
-    .author {
-      color: cornflowerblue;
-    }
+/* Buttons */
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    #h3,
-    #h5,
-    #h4 {
-      font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
-    }
+button:hover {
+  background: #0056b3;
+}
 
-    #h6 {
-      font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
-      font-size: 10px;
-    }
+/* Box Container */
+#box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 40px;
+}
 
-    #input-teacher-name,
-    #exam-list,
-    #temp,
-    #holiday-list-time,
-    #holiday-output-message {
-      font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
-      font-size: 18px;
-    }
+#box-container div {
+  background: #e0c31e;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
-    .button-7,
-    .button,
-    .holiday-b,
-    .HS,
-    .ITAX,
-    .calc{
-      background-color: #0095ff;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.15385;
-      margin: 0;
-      outline: none;
-      padding: 8px .8em;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      vertical-align: baseline;
-      white-space: nowrap;
-    }
+/* Table Styling */
+.GeneratedTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
 
-    .button-7:hover,
-    .button-7:focus,
-    .button:hover,
-    .button:focus,
-    .holiday-b:hover,
-    .holiday-b:focus,
-    .HS:hover,
-    .HS:focus,
-    .ITAX:hover,
-    .ITAX:focus,
-    .calc:hover,
-    .calc:focus{
-      background-color: #07c;
-    }
+.GeneratedTable th, .GeneratedTable td {
+  border: 2px solid #ffcc00;
+  padding: 10px;
+  text-align: center;
+}
 
-    .button-7:focus,
-    .button:focus,
-    .holiday-b:focus,
-    .HS:focus,
-    .ITAX:focus {
-      box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-    }
+.GeneratedTable thead {
+  background: #ffcc00;
+}
 
-    .button-7:active,
-    .button:active,
-    .holiday-b:active,
-    .HS:active,
-    .ITAX:active,
-    .calc:active{
-      background-color: #0064bd;
-      box-shadow: none;
-    }
+/* Responsive Design */
+@media (max-width: 768px) {
+  #box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    table.GeneratedTable {
-      width: 100%;
-      background-color: #ffffff;
-      border-collapse: collapse;
-      border-width: 2px;
-      border-color: #ffcc00;
-      border-style: solid;
-      color: #000000;
-    }
+@media (max-width: 480px) {
+  #box-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    table.GeneratedTable td,
-    table.GeneratedTable th {
-      border-width: 2px;
-      border-color: #ffcc00;
-      border-style: solid;
-      padding: 3px;
-    }
+  .prev, .next {
+    font-size: 14px;
+    padding: 5px;
+  }
+}
 
-    table.GeneratedTable thead {
-      background-color: #ffcc00;
-    }
-
-    .h3 {
-      font-family: "Lucida Console", "Courier New", monospace;
-    }
-
-    #box-container {
-      height: 300px;
-      display: flex;
-      font-family: "Lucida Console";
-      font-size: 25px;
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    #info-centre,
-    #holiday-image {
-      height: 50px;
-      width: 100%;
-      display: flex;
-      font-family: "Lucida Console";
-      font-size: 25px;
-      margin-top: 50px;
-      background-color: white;
-      display: inline-block;
-    }
-
-    #box-1 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-2 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-3 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-4 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-5 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-6 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-7 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-8 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
-
-    #box-9 {
-      background-color: rgb(224, 195, 30);
-      width: 50%;
-      height: 50%;
-      padding: 35px;
-    }
   </style>
   <div class="slideshow-container">
 
