@@ -29,6 +29,7 @@
 body {
   font-family: 'Noto Sans', sans-serif;
   background-color: #f4f4f4;
+  background: linear-gradient(135deg, #ab11e788, #d32020);
   color: #333;
   margin: 0;
   padding: 20px;
@@ -163,11 +164,11 @@ body {
 button {
     background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 12px 20px;
+            font-size: 14px;
             font-weight: bold;
             border: none;
-            border-radius: 30px;
+            border-radius: 20px;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease-in-out;
@@ -269,9 +270,6 @@ button:active {
     
     <button class="button" onclick="ShowRoutine()">Show Routine</button>
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
-
-    <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
-
     <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
     <button class="ITAX" role="button" onclick="itaxPage()">I.Tax</button>
     <button class="calc" role="button" onclick="calcPage()">Co-operative Loan Calc.</button>
@@ -720,77 +718,6 @@ button:active {
   function checkTime(i) {
     if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
     return i;
-  }
-</script>
-<script>
-  // holiday - list button action
-  function upcomingHolidays() {
-    const monthName = ["January", "February", "March", "	April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const mdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-    const today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth();
-    let date = today.getDate();
-    let weekDay = today.getDay();
-    var holidayList = ["(Panchanan Barma).Tuesday.14.02.2023", "(Shiv Ratri).Tuesday.18.01.2023", "(Dol Jatra).Friday.18.03.2022", "(Holi).Saturday.19.03.2022", "Harichand Thakur Birthday.Wednesday.30.03.2022",
-      "(Ambedkar & Mahavir Jayanti).Thursday.14.4.2022",
-      "(Bengali New Year).Thursday.15.4.2022", "(May Day).Saturday.1.5.2022", "(Muharam).Tuesday.09.08.2022", "(Independence Day).Monday.15.08.2022", "(Janmasthami).Friday.19.08.2022"];
-    var nextHolidays = [];
-    //alert( holidayList[1].split(".")[2]);
-    document.getElementById("holiday-list-time").innerHTML = today;
-    document.getElementById("holiday-list").innerHTML = null;
-    var count = 0;
-    for (var i = date; i <= mdays[month]; i++) {
-      var g = new Date(today.getFullYear(), today.getMonth(), i, 11, 15, 00);
-      for (var j = 0; j < holidayList.length; j++) {
-        if (g.getMonth() == holidayList[j].split(".")[3] - 1 && i == holidayList[j].split(".")[2])
-          nextHolidays[i] = holidayList[j];
-      }
-      if (g.getDay() == 0) {
-        nextHolidays[i] = "(Sunday)." + "Sunday." + i + "." + (month + 1) + "." + year;
-      }
-    } // end of for var i
-    var nextHolidays1 = [];
-    for (var k = 0; k < nextHolidays.length; k++)
-      if (nextHolidays[k] != null)
-        nextHolidays1[count++] = nextHolidays[k];
-    //document.getElementById("holiday-list").innerHTML = today + "<br>" +"Upcoming Holidays"+"<br>"+nextHolidays1;
-    // generating table
-    count = 0;
-    var myTableDiv = document.getElementById("holiday-list");
-
-    var table = document.createElement('TABLE');
-    table.border = '1';
-
-    var tableBody = document.createElement('TBODY');
-    table.appendChild(tableBody);
-
-    for (var i = 0; i < nextHolidays1.length; i++) {
-      var tr = document.createElement('TR');
-      tableBody.appendChild(tr);
-
-      for (var j = 0; j < 1; j++) {
-        var td = document.createElement('TD');
-        td.width = '200';
-        td.appendChild(document.createTextNode(nextHolidays1[count++]));
-        tr.appendChild(td);
-      }
-    }
-    myTableDiv.appendChild(table);
-
-    // table ends
-    var x = document.getElementById("holiday-list");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-    var x = document.getElementById("holiday-list-time");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
   }
 </script>
 <script>
