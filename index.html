@@ -232,6 +232,41 @@ button:active {
     padding: 5px;
   }
 }
+/* HS Exam Table Styling    */
+table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: #ebdce9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 1rem;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2575fc;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
 
   </style>
   <div class="slideshow-container">
@@ -722,7 +757,7 @@ button:active {
 </script>
 <script>
   function hsxiExam() {
-    var examRoutine = ["(HS Exam 10:00 am to 1:15 pm - XI Annual 2:00pm to 5:15 pm)",
+    var examRoutine = [
       "Monday.03.03.2025 First Language",
       "Tuesday.04.03.2025 Vocational Subjects",
       "Wednesday.05.03.2025 Second Language",
@@ -738,9 +773,19 @@ button:active {
     var count = 0;
     var myTableDiv = document.getElementById("exam-list");
 
-    var table = document.createElement('TABLE');
-    table.border = '1';
+            // Clear previous table if it exists
+            myTableDiv.innerHTML = '';
 
+            var table = document.createElement('TABLE');
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+    // Add table header
+    var headerRow = document.createElement('TR');
+            var headerCell = document.createElement('TH');
+            headerCell.colSpan = 1;
+            headerCell.textContent = "Exam Schedule, HS and XI- Semester-II";
+            headerRow.appendChild(headerCell);
+            tableBody.appendChild(headerRow);
     var tableBody = document.createElement('TBODY');
     table.appendChild(tableBody);
 
