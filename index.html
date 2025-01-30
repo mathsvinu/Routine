@@ -105,7 +105,7 @@ body {
 .active, .dot:hover {
   background-color: #717171;
 }
-/*INput field styling*/
+/*Input field styling*/
 .input-containerF {
             text-align: center;
             height: 3.5cm;
@@ -161,20 +161,25 @@ body {
         }
 /* Buttons */
 button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-  background: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
-
+button:active {
+            transform: scale(0.95);
+        }
 /* Box Container */
 #box-container {
   display: grid;
@@ -264,7 +269,9 @@ button:hover {
     
     <button class="button" onclick="ShowRoutine()">Show Routine</button>
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
+
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
+
     <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
     <button class="ITAX" role="button" onclick="itaxPage()">I.Tax</button>
     <button class="calc" role="button" onclick="calcPage()">Co-operative Loan Calc.</button>
@@ -690,6 +697,10 @@ button:hover {
 
 <script>
   function startTime() {
+    let today1 = new Date();
+    let day = String(today1.getDate()).padStart(2, '0');
+    let month = String(today1.getMonth() + 1).padStart(2, '0');
+    let year = today1.getFullYear();
     const today = new Date();
     let h = today.getHours();
     let m = today.getMinutes();
@@ -703,7 +714,7 @@ button:hover {
       temp = "PM";
     if (h > 12)
       h %= 12;
-    document.getElementById("h5").innerHTML = "Current Time is " + h + ":" + m + ":" + s + " " + temp;
+    document.getElementById("h5").innerHTML = "Current Time is " + h + ":" + m + ":" + s + " " + temp+ " "+day + "/" + month + "/" + year ;
     setTimeout(startTime, 1000);
   }
   function checkTime(i) {
