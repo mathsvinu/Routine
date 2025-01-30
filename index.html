@@ -105,7 +105,60 @@ body {
 .active, .dot:hover {
   background-color: #717171;
 }
+/*INput field styling*/
+.input-containerF {
+            text-align: center;
+            height: 3.5cm;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: .5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(140, 235, 116, 0.2);
+            max-width: 350px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        #input-teacher-name {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: .5rem;
+            font-weight: 100;
+            letter-spacing: 0.5px;
+        }
+        #teacher-name {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        #teacher-name:focus {
+            border-color: #fff;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+        }
 
+        #teacher-name::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-containerF {
+            animation: fadeIn 0.8s ease-out;
+        }
 /* Buttons */
 button {
   background: #007bff;
@@ -202,10 +255,13 @@ button:hover {
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
+    <div class="input-containerF">
+        <p id="input-teacher-name">Enter your initials:</p>
+        <input id="teacher-name" size="5" type="text" placeholder="e.g., JD" />
+    </div>
 
   <div>
-    <p id="input-teacher-name">Enter your initials:</p>
-    <input id="teacher-name" size="5" type="text" />
+    
     <button class="button" onclick="ShowRoutine()">Show Routine</button>
     <button class="button-7" role="button" onclick="javaCode()">Weekly Routine</button>
     <button class="holiday-b" role="button" onclick="upcomingHolidays()">Upcoming Holidays</button>
