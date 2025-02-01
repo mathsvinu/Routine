@@ -713,10 +713,10 @@ table {
             document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
         }
         else if (d.getTime() >= g9.getTime() && d.getTime() < g10.getTime() && day_number % 7 != 0) {
-          document.getElementById("box-8").style.backgroundColor = "red";
-          document.getElementById("box-8").style.border = "1px solid";
-          document.getElementById("box-8").style.padding = "10px";
-          document.getElementById("box-8").style.boxShadow = "5px 5px";
+          document.getElementById("box-9").style.backgroundColor = "red";
+          document.getElementById("box-9").style.border = "1px solid";
+          document.getElementById("box-9").style.padding = "10px";
+          document.getElementById("box-9").style.boxShadow = "5px 5px";
           document.getElementById("p-end").innerHTML = "8th period will end in approximately: "+Math.floor(((g10.getTime()-d.getTime())/(1000*60))) + "minutes.";
           if ("OFF" == weekly_Routine[day_number][7].split(".")[0])
             document.getElementById("message").innerHTML = "OFF period!! You don't have any allotted class, look for provisional routine."
