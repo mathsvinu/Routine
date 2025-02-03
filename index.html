@@ -267,7 +267,59 @@ table {
         tr:last-child td {
             border-bottom: none;
         }
+/* floating bar */
+.floating-bar {
+            position: fixed;
+            right: 0;
+            top: 35%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(145deg,#1A2980,#26D0CE);
+            color: white;
+            cursor: pointer;
+            transition: width 0.4s ease;
+            overflow: hidden;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
 
+        .bar-content {
+            padding: 20px;
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .message-floatingbar {
+            color: #eecb6c;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: larger;
+            margin: 0;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .notice-content {
+            color: rgb(241, 236, 238);
+            text-wrap: wrap;
+            font-family: monospace;
+            font-size:large;
+            margin-left: 10px;
+            margin-top: 15px;
+            margin-right: 10px;
+            text-align: left;
+        }
+
+        .floating-bar.expanded {
+            width: 400px;
+            height: 400px;
+        }
+
+        .floating-bar.expanded .bar-content {
+            opacity: 1;
+        }
   </style>
   <div class="slideshow-container">
 
@@ -320,6 +372,18 @@ table {
     </p>
   </div>
 
+  <div id="floating-bar" class="floating-bar">
+    <div id="bar-content" class="bar-content">
+        <p id="message-floatingbar" class="message-floatingbar">NOTICE</p>
+        <div id ="notice-content" class="notice-content">
+            <ul>
+                <li>TEST -1</li>
+                <li>TEST -2</li>
+                <li>TEST -3</li>
+              </ul>
+        </div>
+    </div>
+</div>
   <div id="box-container">
     <div id="box-1"></div>
     <div id="box-2"></div>
@@ -847,4 +911,10 @@ table {
   function calcPage(){
     window.open("https://thecprojectt.blogspot.com/2022/09/kaim-co-operative-loan-calculator.html");
   }
+</script>
+<script>
+  // floating bar
+  document.getElementById('floating-bar').addEventListener('click', function() {
+      this.classList.toggle('expanded');
+  });
 </script>
