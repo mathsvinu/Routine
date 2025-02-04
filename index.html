@@ -16,7 +16,8 @@
 <hr>
 
 <body onload="startTime()">
-
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
   <style>
    
     /* Global Styles */
@@ -350,6 +351,7 @@ table {
     <div class="input-containerF">
         <p id="input-teacher-name">Enter your initials:</p>
         <input id="teacher-name" size="5" type="text" placeholder="e.g., JD" />
+        
     </div>
 
   <div>
@@ -359,6 +361,7 @@ table {
     <button class="HS" role="button" onclick="hsxiExam()">HS &amp; XI Exam</button>
     <button class="ITAX" role="button" onclick="itaxPage()">I.Tax</button>
     <button class="calc" role="button" onclick="calcPage()">Co-operative Loan Calc.</button>
+    <div class="fb-page" data-href="https://www.facebook.com/prime.maths" data-tabs="" data-width="270px" data-height="300" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/prime.maths" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/prime.maths">Prime Maths</a></blockquote></div>
     <p id="holiday-list-time" style="display: none;"></p>
     <p id="holiday-list" style="display: none;"></p>
     <p id="exam-list" style="display: none;"></p>
@@ -387,7 +390,7 @@ table {
                   <li> February 20 Thursday,  Physical Science </li>
                   <li> February 22 Saturday,  Optional Elective </li>
               </ul>
-            
+              
         </div>
     </div>
 </div>
